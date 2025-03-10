@@ -36,7 +36,7 @@ const options = {
 flatpickr(datetimePicker, options);  
 
 startButton.addEventListener('click', startTimer);  
-startButton.disabled = true; // Кнопка неактивна при завантаженні сторінки  
+startButton.disabled = true;   
 
 function startTimer() {  
     startButton.disabled = true;  
