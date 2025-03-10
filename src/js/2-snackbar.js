@@ -4,10 +4,10 @@ import "izitoast/dist/css/iziToast.min.css";
 const form = document.querySelector('.form');  
 
 form.addEventListener('submit', function(event) {  
-    event.preventDefault(); // Запобігти перезавантаженню сторінки  
+    event.preventDefault(); 
 
-    const delay = Number(form.delay.value); // Отримати значення затримки  
-    const state = form.state.value; // Отримати обране значення радіокнопок  
+    const delay = Number(form.delay.value); 
+    const state = form.state.value;
 
     createPromise(delay, state)  
         .then(() => {  
@@ -26,7 +26,6 @@ form.addEventListener('submit', function(event) {
         });  
 });  
 
-// Функція для створення промісу  
 function createPromise(delay, state) {  
     return new Promise((resolve, reject) => {  
         setTimeout(() => {  
