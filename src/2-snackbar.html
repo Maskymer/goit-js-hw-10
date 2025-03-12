@@ -6,7 +6,6 @@
     <title>Promise Generator</title>  
     <link rel="stylesheet" href="./node_modules/iziToast/dist/css/iziToast.min.css">  
     <style>  
-    
         .form {  
             margin: 20px;  
         }  
@@ -34,7 +33,10 @@
         <button type="submit">Create notification</button>  
     </form>  
 
-    <script src="./node_modules/iziToast/dist/js/iziToast.min.js"></script>  
+    <script type="module">  
+        import iziToast from './node_modules/iziToast/dist/js/iziToast.min.js';  
+        
+    </script>  
     <script src="./js/2-snackbar.js" type="module"></script>  
 </body>  
 </html>  
