@@ -4,7 +4,6 @@
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Promise Generator</title>  
-    <link rel="stylesheet" href="node_modules/izitoast/dist/css/iziToast.min.css">  
     <style>  
         .form {  
             margin: 20px;  
@@ -33,41 +32,6 @@
         <button type="submit">Create notification</button>  
     </form>  
 
-    <script type="module">  
-        import iziToast from 'izitoast';  
-        import 'izitoast/dist/css/iziToast.min.css';  
-
-        const form = document.getElementById('notification-form');  
-
-        form.addEventListener('submit', (event) => {  
-            event.preventDefault();  
-
-            const delay = form.delay.value;  
-            const state = form.state.value;  
-
-            const promise = new Promise((resolve, reject) => {  
-                setTimeout(() => {  
-                    state === 'fulfilled' ? resolve('Promise fulfilled!') : reject('Promise rejected!');  
-                }, delay);  
-            });  
-
-            promise  
-                .then((message) => {  
-                    iziToast.success({  
-                        title: 'Success',  
-                        message: message,  
-                        position: 'topRight'  
-                    });  
-                })  
-                .catch((message) => {  
-                    iziToast.error({  
-                        title: 'Error',  
-                        message: message,  
-                        position: 'topRight'  
-                    });  
-                });  
-        });  
-    </script>  
-    <script src="./js/2-snackbar.js" type="module"></script>  
+    <script type="module" src="./js/2-snackbar.js"></script>  
 </body>  
 </html>  
