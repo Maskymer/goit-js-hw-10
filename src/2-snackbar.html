@@ -40,12 +40,12 @@
         const form = document.getElementById('notification-form');  
 
         form.addEventListener('submit', (event) => {  
-            event.preventDefault(); // Зупинка стандартного відправлення форми  
+            event.preventDefault(); 
             
             const delay = form.delay.value;  
             const state = form.state.value;  
 
-            // Створення промісу  
+            
             const promise = new Promise((resolve, reject) => {  
                 setTimeout(() => {  
                     state === 'fulfilled' ? resolve('Promise fulfilled!') : reject('Promise rejected!');  
