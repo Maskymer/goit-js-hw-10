@@ -12,7 +12,7 @@
     </style>  
 </head>  
 <body>  
-    <form class="form">  
+    <form class="form" id="notification-form">  
         <label>  
             Delay (ms)  
             <input type="number" name="delay" required />  
@@ -34,8 +34,40 @@
     </form>  
 
     <script type="module">  
-       import iziToast from 'iziToast/dist/js/iziToast.min.js';  
-       import 'iziToast/dist/css/iziToast.min.css';  
+        import iziToast from 'izitoast';  
+        import 'izitoast/dist/css/iziToast.min.css';  
+
+        const form = document.getElementById('notification-form');  
+
+        form.addEventListener('submit', (event) => {  
+            event.preventDefault(); // Зупинка стандартного відправлення форми  
+            
+            const delay = form.delay.value;  
+            const state = form.state.value;  
+
+            // Створення промісу  
+            const promise = new Promise((resolve, reject) => {  
+                setTimeout(() => {  
+                    state === 'fulfilled' ? resolve('Promise fulfilled!') : reject('Promise rejected!');  
+                }, delay);  
+            });  
+
+            promise  
+                .then((message) => {  
+                    iziToast.success({  
+                        title: 'Success',  
+                        message: message,  
+                        position: 'topRight'  
+                    });  
+                })  
+                .catch((message) => {  
+                    iziToast.error({  
+                        title: 'Error',  
+                        message: message,  
+                        position: 'topRight'  
+                    });  
+                });  
+        });  
     </script>  
     <script src="./js/2-snackbar.js" type="module"></script>  
 </body>  
