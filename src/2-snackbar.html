@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Promise Generator</title>  
     <link rel="stylesheet" href="node_modules/izitoast/dist/css/iziToast.min.css">  
-<script type="module">  
-  import iziToast from 'izitoast';  
-</script>  
     <style>  
         .form {  
             margin: 20px;  
@@ -43,12 +40,11 @@
         const form = document.getElementById('notification-form');  
 
         form.addEventListener('submit', (event) => {  
-            event.preventDefault(); 
-            
+            event.preventDefault();  
+
             const delay = form.delay.value;  
             const state = form.state.value;  
 
-            
             const promise = new Promise((resolve, reject) => {  
                 setTimeout(() => {  
                     state === 'fulfilled' ? resolve('Promise fulfilled!') : reject('Promise rejected!');  

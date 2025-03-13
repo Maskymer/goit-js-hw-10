@@ -6,9 +6,6 @@
     <title>Countdown Timer</title>  
     <link rel="stylesheet" href="./css/1-timer.css">  
     <link rel="stylesheet" href="node_modules/flatpickr/dist/flatpickr.min.css">  
-    <script type="module">  
-      import flatpickr from 'flatpickr';  
-    </script>  
 </head>  
 <body>  
     <input type="text" id="datetime-picker" />  
@@ -35,7 +32,16 @@
 
     <script type="module">  
         import flatpickr from 'flatpickr';  
-        flatpickr("#datetime-picker");  
+        import "flatpickr/dist/flatpickr.min.css"; 
+        flatpickr("#datetime-picker", {  
+            enableTime: true,  
+            time_24hr: true,  
+            defaultDate: new Date(),  
+            minuteIncrement: 1,  
+            onClose(selectedDates) {  
+                
+            },  
+        });  
     </script>  
     <script src="./js/1-timer.js" type="module"></script>  
 </body>  
